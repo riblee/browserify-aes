@@ -57,14 +57,14 @@ Splitter.prototype.get = function (autoPadding) {
   var out
   if (autoPadding) {
     if (this.cache.length > 16) {
-      out = this.cache.slice(0, 16)
-      this.cache = this.cache.slice(16)
+      out = new Uint8Array(this.cache).slice(0, 16)
+      this.cache = new Uint8Array(this.cache).slice(16)
       return out
     }
   } else {
     if (this.cache.length >= 16) {
-      out = this.cache.slice(0, 16)
-      this.cache = this.cache.slice(16)
+      out = new Uint8Array(this.cache).slice(0, 16)
+      this.cache = new Uint8Array(this.cache).slice(16)
       return out
     }
   }
